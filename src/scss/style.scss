@@ -1,0 +1,27 @@
+@import "../node_modules/bootstrap/scss/functions";
+
+@import "../node_modules/bootstrap/scss/variables";
+// Create your own map
+$theme-colors: (
+    "primary": #041C32,
+    "primary-1": #04293A,
+    "primary-2": #064663,
+    "primary-3": #ECB365,
+    "danger": $danger,
+    "info": $info,
+    "secondary": $secondary,
+    "light": $light,
+    "dark": $dark,
+    "warning": $warning,
+    "success": $success,
+  );
+  
+  $custom-colors: (
+    "rezo": #026070
+  );
+  
+  // Merge the maps
+  $theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
