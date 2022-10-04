@@ -1,7 +1,7 @@
 
 
 <template  >
-  <div v-if="invoicesLoaded" >
+  <div v-if="invoicesLoaded"  id="app"  >
     <div v-if="!mobile" class="app row flex-column flex-sm-row bg-primary-1  text-center min-vh-100 ">
 
 
@@ -40,7 +40,6 @@ import Navigation from './components/Navigation.vue';
 import InvoiceModal from './components/InvoiceModal.vue';
 import Modal from './components/Modal.vue'
 import HomeView from './views/HomeView.vue';
-import InvoiceView from './views/InvoiceView.vue'
 
 export default {
   components: {
@@ -49,9 +48,12 @@ export default {
     InvoiceModal,
     Modal
   },
+ 
   data() {
     return {
       mobile: false,
+     
+     
     }
 
   },
@@ -59,6 +61,9 @@ export default {
     this.GET_INVOICES();
     this.checkScreen();
     window.addEventListener('resize', this.checkScreen)
+    this.changeDir()
+
+    
   },
   methods: {
     ...mapActions(['GET_INVOICES']),
@@ -71,10 +76,22 @@ export default {
       }
       this.mobile = false
 
+    },
+    changeDir(){
+      const dir = document.querySelector('html')  /// get html tag
+      dir.setAttribute('dir',this.dir) 
+      const lang  = this.$i18n.locale;
+      dir.setAttribute('lang',lang) 
+     
     }
   },
   computed: {
-    ...mapState(['invoiceModal', 'modalActive', 'invoicesLoaded'])
+    ...mapState(['invoiceModal', 'modalActive', 'invoicesLoaded','dir'])
+  },
+  watch:{
+    dir(){
+      this.changeDir()
+    }
   }
 }
 </script>
@@ -103,7 +120,7 @@ export default {
   &::before {
     background-color: #33d69f;
   }
-
+  
   color: #33d69f;
   background-color: rgba(51, 214, 160, 0.1);
 }

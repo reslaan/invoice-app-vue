@@ -7,9 +7,9 @@
         <div class="col-2"><span class="">${{ invoice.invoiceTotal }}</span></div>
         <div class="col-2"><div class="rounded p-2"
                 :class="{ paid: invoice.invoicePaid, draft: invoice.invoiceDraft, pending: invoice.invoicePending }">
-                <span v-if="invoice.invoicePaid">Paid</span>
-                <span v-if="invoice.invoiceDraft">Draft</span>
-                <span v-if="invoice.invoicePending">Pending</span>
+                <span v-if="invoice.invoicePaid">{{$t("paid")}}</span>
+                <span v-if="invoice.invoiceDraft">{{$t("draft")}}</span>
+                <span v-if="invoice.invoicePending">{{$t("pending")}}</span>
             </div></div>
         <div class="col-2"> <div class="icon">
                 <img src="@/assets/icon-arrow-right.svg" alt="" />
@@ -25,5 +25,11 @@ export default {
 </script>
   
 <style lang="scss" scoped>
-
+img{
+    
+    &:dir(rtl){
+       
+       transform: rotate(180deg);
+     }
+}
 </style>

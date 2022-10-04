@@ -1,0 +1,20 @@
+{
+    "invoices": "الفواتير",
+    "total_invoices":"عدد الفواتير {total}",
+    "draft":"معلقة",
+    "paid":"مدفوعة",
+    "pending":"انتظار",
+    "clear_filter":"إزالة التصفية",
+    "filter":"تصفية حسب",
+    "new_invoice":"إضافة فاتورة +",
+    "status":"الحالة",
+    "edit":"تعديل",
+    "delete":"حذف",
+    "mark_as_paid":"تعيين كـ مدفوعة",
+    "mark_as_pending":"تعيين كـ انتظار",
+    "close":"إغلاق",
+    "keep":"تراجع",
+    "back":"العودة للخلف"
+
+
+}

@@ -3,8 +3,8 @@
         <div class="modal-content text-white bg-primary w-25 rounded p-3">
             <p>Are you sure you want to exit? your changes will not be saved</p>
             <div class="d-flex justify-content-around">
-                  <button @click="keepModal" class="btn btn-primary-2 rounded-pill px-4">Keep </button>
-            <button @click="closeModal" class="btn btn-danger rounded-pill px-4">Close </button>
+                  <button @click="keepModal" class="btn btn-primary-2 rounded-pill px-4">{{$t("keep")}} </button>
+            <button @click="closeModal" class="btn btn-danger rounded-pill px-4">{{$t("close")}} </button>
             </div>
           
         </div>

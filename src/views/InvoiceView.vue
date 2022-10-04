@@ -1,32 +1,32 @@
 <template>
   <div v-if="currentInvoice" class="container my-3">
     <router-link class="nav-link d-flex mt-2" :to="{ name: 'home' }">
-      <img src="@/assets/icon-arrow-left.svg"  alt="" /> Go Back
+      <img src="@/assets/icon-arrow-left.svg" class=" ms-2" alt="" />  {{$t('back')}}
     </router-link>
     <!-- Header -->
     <div class=" bg-primary p-3 rounded d-flex justify-content-between align-items-center">
       <div class=" d-flex  justify-content-around align-items-center">
-        <span>Status</span>
-        <div class="status-button d-flex ms-3 px-2 py-1 rounded " :class="{
+        <span>{{$t('status')}}</span>
+        <div class="status-button d-flex ms-5 px-2 py-1 rounded " :class="{
           paid: currentInvoice.invoicePaid,
           draft: currentInvoice.invoiceDraft,
           pending: currentInvoice.invoicePending,
         }">
-          <span v-if="currentInvoice.invoicePaid">Paid</span>
-          <span v-if="currentInvoice.invoiceDraft">Draft</span>
-          <span v-if="currentInvoice.invoicePending">Pending</span>
+          <span v-if="currentInvoice.invoicePaid">{{$t("paid")}}</span>
+          <span v-if="currentInvoice.invoiceDraft">{{$t("draft")}}</span>
+          <span v-if="currentInvoice.invoicePending">{{$t("pending")}}</span>
         </div>
       </div>
       <div class=" d-flex justify-content-around ">
-        <button @click="toggleEditInvoice" class="btn btn-primary-2 me-2">Edit</button>
-        <button @click="deleteInvoice(currentInvoice.docId)" class="btn btn-danger me-2">Delete</button>
+        <button @click="toggleEditInvoice" class="btn btn-primary-2 me-2">{{$t('edit')}}</button>
+        <button @click="deleteInvoice(currentInvoice.docId)" class="btn btn-danger me-2">{{$t('delete')}}</button>
         <button @click="updateStatusToPaid(currentInvoice.docId)" v-if="currentInvoice.invoicePending"
           class="btn btn-success">
-          Mark as Paid
+          {{$t('mark_as_paid')}}
         </button>
         <button v-if="currentInvoice.invoiceDraft || currentInvoice.invoicePaid"
           @click="updateStatusToPending(currentInvoice.docId)" class="btn btn-primary-3">
-          Mark as Pending
+          {{$t('mark_as_pending')}}
         </button>
       </div>
     </div>
@@ -150,11 +150,18 @@ export default {
     align-items: center;
     color: #fff;
     font-size: 12px;
+  
+
 
     img {
       margin-right: 16px;
       width: 7px;
       height: 10px;
+    
+      &:dir(rtl){
+       
+        transform: rotate(180deg);
+      }
     }
   }
 

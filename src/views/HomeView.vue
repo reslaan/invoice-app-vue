@@ -5,24 +5,24 @@
     <!-- header -->
     <div class="header d-flex mb-5  justify-content-between align-items-center">
       <div class="col-md-4 text-start">
-        <h3>Invoices</h3>
-        <span>There are {{invoiceData.length}} total invoices</span>
+        <h3>{{$t('invoices')}}</h3>
+        <span>{{ $t('total_invoices',{ total: filteredData.length} )}} </span>
       </div>
       <div class="col-md-6    d-flex justify-content-end align-items-center">
         <div class="dropdown">
           <button class="btn btn-primary-1 dropdown-toggle me-3 " type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Filter by status: <span v-if="filteredInvoice">{{filteredInvoice}}</span>
+            {{$t("filter")}} <span v-if="filteredInvoice">: {{filteredInvoice}}</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-dark bg-primary-1 ">
-            <li><a class="dropdown-item" @click="filteredInvoices" href="#">Draft</a></li>
-            <li><a class="dropdown-item" @click="filteredInvoices"  href="#">Pending</a></li>
-            <li><a class="dropdown-item" @click="filteredInvoices" href="#">Paid</a></li>
-            <li><a class="dropdown-item" @click="filteredInvoices" href="#">clear filter</a></li>
+            <li><a class="dropdown-item" @click="filteredInvoices" href="#">{{$t("draft")}}</a></li>
+            <li><a class="dropdown-item" @click="filteredInvoices"  href="#">{{$t("pending")}}</a></li>
+            <li><a class="dropdown-item" @click="filteredInvoices" href="#">{{$t("paid")}}</a></li>
+            <li><a class="dropdown-item" @click="filteredInvoices" href="#">{{$t("clear_filter")}}</a></li>
           </ul>
         </div>
         <div>
-          <button class="btn btn-primary-2 rounded-pill " @click="newInvoice"><i>&plus;</i> New Invoice</button>
+          <button class="btn btn-primary-2 rounded-pill " @click="newInvoice">{{$t('new_invoice')}}</button>
         </div>
       </div>
     </div>
@@ -64,7 +64,7 @@ export default {
        this.TOGGLE_INVOICE()
     },
     filteredInvoices(e){
-      if(e.target.innerText === "clear filter" ){
+      if(e.target.innerText === "Clear Filter" || e.target.innerText === "إزالة التصفية" ){
         this.filteredInvoice = null
         return;
       }
@@ -76,13 +76,13 @@ export default {
     filteredData(){
      return this.invoiceData.filter(invoice => {
       
-      if(this.filteredInvoice === "Paid"){
+      if(this.filteredInvoice === "Paid" || this.filteredInvoice === "مدفوعة"){
         return invoice.invoicePaid === true;
       }
-      if(this.filteredInvoice === "Draft"){
+      if(this.filteredInvoice === "Draft" || this.filteredInvoice === "معلقة"){
         return invoice.invoiceDraft === true;
       }
-      if(this.filteredInvoice === "Pending"){
+      if(this.filteredInvoice === "Pending" || this.filteredInvoice === "انتظار"){
         return invoice.invoicePending === true;
       }
       

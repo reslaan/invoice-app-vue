@@ -1,0 +1,19 @@
+{
+    "invoices": "Invoices",
+    "total_invoices":"There are {total} total invoices",
+    "draft":"Draft",
+    "paid":"Paid",
+    "pending":"Pending",
+    "clear_filter":"Clear Filter",
+    "filter":"Filter By State",
+    "new_invoice":"New Invoice +",
+    "status":"Status",
+    "edit":"Edit",
+    "delete":"Delete",
+    "mark_as_paid":"Mark as Paid",
+    "mark_as_pending":"Mark as Pending",
+    "close":"close",
+    "keep":"Keep",
+    "back":"Go Back"
+    
+}
