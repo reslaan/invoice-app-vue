@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="home container my-5 w-75 text-white">
+  <div class="home container my-5  text-white">
     <!-- header -->
     <div class="header d-flex mb-5  justify-content-between align-items-center">
       <div class="col-md-4 text-start">
@@ -10,7 +10,7 @@
       </div>
       <div class="col-md-6    d-flex justify-content-end align-items-center">
         <div class="dropdown">
-          <button class="btn btn-primary-1 dropdown-toggle me-3 " type="button" data-bs-toggle="dropdown"
+          <button class="btn btn-primary-1 dropdown-toggle me-3 border-0" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             {{$t("filter")}} <span v-if="filteredInvoice">: {{filteredInvoice}}</span>
           </button>
@@ -22,7 +22,7 @@
           </ul>
         </div>
         <div>
-          <button class="btn btn-primary-2 rounded-pill " @click="newInvoice">{{$t('new_invoice')}} +</button>
+          <button class="btn btn-primary-2 rounded-pill border-0" @click="newInvoice">{{$t('new_invoice')}} +</button>
         </div>
       </div>
     </div>

@@ -87,7 +87,7 @@
                 </div>
                 <div class="row">
                     <h4>{{$t("item_list")}}</h4>
-                    <table class="table  text-white border-primary-1 ">
+                    <table class="table table-borderless text-white border-primary-1 ">
                         <thead>
                             <tr class="">
                                 <th class="col-5">{{$t("item_name")}}</th>
@@ -98,7 +98,7 @@
                             </tr>
                         </thead>
                         <tbody class="">
-                            <tr v-for="(item , index) in invoiceItemList " :key="index">
+                            <tr v-for="(item , index) in invoiceItemList " :key="index" class="">
                                 <td class=""><input class="w-100" type="text" v-model="item.name"></td>
                                 <td class=""><input class="w-100" type="number" min="1" v-model="item.qty"></td>
                                 <td class=""><input class="w-100" type="text" v-model="item.price"></td>

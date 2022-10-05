@@ -25,7 +25,10 @@ $theme-colors: (
 
 @import '../node_modules/bootstrap/scss/bootstrap';
 
+.btn-primary,.btn-primary-1,.btn-primary-2,.btn-primary-3,.btn-danger,.btn-success{
+  border: 0 !important;
 
+}
 // rtl 
 html:dir(rtl){
 
