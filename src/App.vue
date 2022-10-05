@@ -9,7 +9,7 @@
 
         <Navigation />
       </div>
-      <div class="col-12 col-sm-11 text-white position-relative">
+      <div class="main-content col-12 col-sm-11 text-white position-relative">
         <modal v-if="modalActive" />
         <Transition name="invoice">
           <InvoiceModal v-if="invoiceModal" />
@@ -21,8 +21,8 @@
     </div>
     <div v-else class="d-flex bg-primary-1 vh-100 ">
       <div class="m-auto text-center text-white ">
-        <h2 class="">Sorry, this app is not supported mobile device</h2>
-        <p>To use this app, please use a compouter or tablet</p>
+        <h2 class="">{{$t('support_title')}}</h2>
+        <p>{{$t('support_subtitle')}}</p>
       </div>
 
     </div>
@@ -61,7 +61,6 @@ export default {
     this.GET_INVOICES();
     this.checkScreen();
     window.addEventListener('resize', this.checkScreen)
-    this.changeDir()
 
     
   },
@@ -77,26 +76,17 @@ export default {
       this.mobile = false
 
     },
-    changeDir(){
-      const dir = document.querySelector('html')  /// get html tag
-      dir.setAttribute('dir',this.dir) 
-      const lang  = this.$i18n.locale;
-      dir.setAttribute('lang',lang) 
-     
-    }
   },
   computed: {
-    ...mapState(['invoiceModal', 'modalActive', 'invoicesLoaded','dir'])
+    ...mapState(['invoiceModal', 'modalActive', 'invoicesLoaded'])
   },
-  watch:{
-    dir(){
-      this.changeDir()
-    }
-  }
+ 
 }
 </script>
 
 <style lang="scss">
+
+
 /* animated modal invoice  */
 .invoice-enter-active,
 .invoice-leave-active {
@@ -120,7 +110,7 @@ export default {
   &::before {
     background-color: #33d69f;
   }
-  
+  min-width: fit-content;
   color: #33d69f;
   background-color: rgba(51, 214, 160, 0.1);
 }
@@ -129,6 +119,7 @@ export default {
   &::before {
     background-color: #ff8f00;
   }
+  min-width: fit-content;
   color: #ff8f00;
   background-color: rgba(255, 145, 0, 0.1);
 }
@@ -137,7 +128,7 @@ export default {
   &::before {
     background-color: #dfe3fa;
   }
-
+  min-width: fit-content;
   color: #dfe3fa;
   background-color: rgba(223, 227, 250, 0.1);
 }

@@ -3,28 +3,28 @@
         <form @submit.prevent="submitForm"
             class="invoice-form bg-primary-1 py-4 px-3 row flex-column  text-start  shadow-lg ">
             <Loading v-if="loading" />
-            <h1 v-if="!editInvoice" class="mb-4 fw-bold">New Invoice</h1>
-            <h1 v-if="editInvoice" class="mb-4 fw-bold">Edit Invoice</h1>
+            <h1 v-if="!editInvoice" class="mb-4 fw-bold">{{$t("new_invoice")}}</h1>
+            <h1 v-if="editInvoice" class="mb-4 fw-bold">{{$t("edit_invoice")}}</h1>
 
             <!-- bill form -->
             <div class="mb-4">
-                <h4 class="text-primary-3">Bill From</h4>
+                <h4 class="text-primary-3">{{$t("bill_from")}}</h4>
                 <div class="row mb-2 g-2">
                     <div class="col-md-12">
-                        <label for="billerStreetAddress" class="form-label">Street Address</label>
+                        <label for="billerStreetAddress" class="form-label">{{$t("street")}}</label>
                         <input type="text" required class="form-control" id="billerStreetAddress"
                             v-model="billerStreetAddress">
                     </div>
                     <div class="col-md-4">
-                        <label for="billerCity" class="form-label">City</label>
+                        <label for="billerCity" class="form-label">{{$t("city")}}</label>
                         <input type="text" required class="form-control" id="billerCity" v-model="billerCity">
                     </div>
                     <div class="col-md-4">
-                        <label for="billerZipCode" class="form-label">Zip Code </label>
+                        <label for="billerZipCode" class="form-label">{{$t("zip_code")}} </label>
                         <input type="text" required class="form-control" id="billerZipCode" v-model="billerZipCode">
                     </div>
                     <div class="col-md-4">
-                        <label for="billerCountry" class="form-label">Biller Country</label>
+                        <label for="billerCountry" class="form-label">{{$t("bill_country")}}</label>
                         <input type="text" required class="form-control" id="billerCountry" v-model="billerCountry">
                     </div>
 
@@ -33,28 +33,28 @@
 
             <!-- bill to -->
             <div class="mb-4">
-                <h4 class="text-primary-3">Bill To</h4>
+                <h4 class="text-primary-3">{{$t("bill_to")}}</h4>
                 <div class="row mb-2 g-2">
-                    <div class="col-md-12"> <label for="clientName" class="form-label">client Name</label>
+                    <div class="col-md-12"> <label for="clientName" class="form-label">{{$t("client_name")}}</label>
                         <input type="text" required class="form-control" id="clientName" v-model="clientName">
                     </div>
-                    <div class="col-md-12"><label for="clientEmail" class="form-label">client Email</label>
+                    <div class="col-md-12"><label for="clientEmail" class="form-label">{{$t("client_email")}}</label>
                         <input type="text" required class="form-control" id="clientEmail" v-model="clientEmail">
                     </div>
-                    <div class="col-md-12"> <label for="clientStreetAddress" class="form-label">Street Address</label>
+                    <div class="col-md-12"> <label for="clientStreetAddress" class="form-label">{{$t("street")}}</label>
                         <input type="text" required class="form-control" id="clientStreetAddress"
                             v-model="clientStreetAddress">
                     </div>
                     <div class="col-md-4">
-                        <label for="clientCity" class="form-label">City</label>
+                        <label for="clientCity" class="form-label">{{$t("city")}}</label>
                         <input type="text" required class="form-control" id="clientCity" v-model="clientCity">
                     </div>
                     <div class="col-md-4">
-                        <label for="clientZipCode" class="form-label">Zip Code </label>
+                        <label for="clientZipCode" class="form-label">{{$t("zip_code")}}</label>
                         <input type="text" required class="form-control" id="clientZipCode" v-model="clientZipCode">
                     </div>
                     <div class="col-md-4">
-                        <label for="clientCountry" class="form-label">Biller Country</label>
+                        <label for="clientCountry" class="form-label">{{$t("bill_country")}}</label>
                         <input type="text" required class="form-control" id="clientCountry" v-model="clientCountry">
                     </div>
                 </div>
@@ -65,35 +65,35 @@
 
                 <div class="row mb-3 g-2">
                     <div class="col-md-6">
-                        <label for="invoiceDate" class="form-label">Invoice Date</label>
+                        <label for="invoiceDate" class="form-label">{{$t("invoice_date")}}</label>
                         <input type="text" disabled class="form-control" id="invoiceDate" v-model="invoiceDate">
                     </div>
                     <div class="col-md-6">
-                        <label for="paymentDueDate" class="form-label">Payment Due Date </label>
+                        <label for="paymentDueDate" class="form-label">{{$t("payment_date")}} </label>
                         <input type="text" disabled class="form-control" id="paymentDueDate" v-model="paymentDueDate">
                     </div>
                     <div class="col-md-12">
-                        <label for="paymentTerms" class="form-label">Payment Terms </label>
+                        <label for="paymentTerms" class="form-label">{{$t("payment_terms")}}</label>
                         <select type="text" required class="form-select" id="paymentTerms" v-model="paymentTerms">
                             <option value="30">30 days</option>
                             <option value="10">10 days</option>
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <label for="productDescription" class="form-label">Product Description </label>
+                        <label for="productDescription" class="form-label">{{$t("product_desc")}}</label>
                         <input type="text" required class="form-control" id="productDescription"
                             v-model="productDescription">
                     </div>
                 </div>
                 <div class="row">
-                    <h4>Item list</h4>
+                    <h4>{{$t("item_list")}}</h4>
                     <table class="table  text-white border-primary-1 ">
                         <thead>
                             <tr class="">
-                                <th class="col-5">Item name </th>
-                                <th class="col-2">Qty </th>
-                                <th class="col-2">Price </th>
-                                <th class="col-2">Total </th>
+                                <th class="col-5">{{$t("item_name")}}</th>
+                                <th class="col-2">{{$t("qty")}} </th>
+                                <th class="col-2">{{$t("price")}} </th>
+                                <th class="col-2">{{$t("total")}} </th>
 
                             </tr>
                         </thead>
@@ -109,23 +109,22 @@
                         </tbody>
                     </table>
                     <div class="col-12">
-                        <button @click.prevent="addInoviceItem" class="btn  btn-primary-2 rounded-pill w-100">+ Add
-                            Item</button>
+                        <button @click.prevent="addInoviceItem" class="btn  btn-primary-2 rounded-pill w-100">{{$t("add_item")}} + </button>
 
                     </div>
                 </div>
                 <div class="row justify-content-between my-5">
                     <div class="col-2">
                         <button type="button" @click.prevent="discard"
-                            class="btn btn-danger rounded-pill">Discard</button>
+                            class="btn btn-danger rounded-pill">{{$t("discard")}}</button>
                     </div>
                     <div class="col-7  d-flex justify-content-end">
                         <button v-if="!editInvoice" type="submit" @click="saveDraft"
-                            class="btn btn-primary me-2 rounded-pill ">save Draft</button>
+                            class="btn btn-primary me-2 rounded-pill ">{{$t("save_draft")}}</button>
                         <button v-if="!editInvoice" type="submit" @click="createInovice"
-                            class="btn btn-primary-2 rounded-pill">Create Invoice</button>
+                            class="btn btn-primary-2 rounded-pill">{{$t("create_invoice")}}</button>
                         <button v-if="editInvoice" type="submit" @click="updateInovice"
-                            class="btn btn-primary-2 rounded-pill">Update Invoice</button>
+                            class="btn btn-primary-2 rounded-pill">{{$t("update_invoice")}}</button>
 
                     </div>
                 </div>
@@ -358,8 +357,11 @@ export default {
 
 <style lang="scss" scoped >
 .invoice-content {
-    font-size: 80%;
-    margin-left: -4%;
+    font-size: 80%;  
+    margin-left: -3%;
+    &:dir(rtl){
+        margin-right: -3%;
+    } 
     overflow-y: scroll;
     z-index: 9;
 

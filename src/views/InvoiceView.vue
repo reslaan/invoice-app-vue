@@ -1,13 +1,13 @@
 <template>
   <div v-if="currentInvoice" class="container my-3">
     <router-link class="nav-link d-flex mt-2" :to="{ name: 'home' }">
-      <img src="@/assets/icon-arrow-left.svg" class=" ms-2" alt="" />  {{$t('back')}}
+      <img src="@/assets/icon-arrow-left.svg" class=" me-2" alt="" />  {{$t('back')}}
     </router-link>
     <!-- Header -->
     <div class=" bg-primary p-3 rounded d-flex justify-content-between align-items-center">
       <div class=" d-flex  justify-content-around align-items-center">
         <span>{{$t('status')}}</span>
-        <div class="status-button d-flex ms-5 px-2 py-1 rounded " :class="{
+        <div class="status-button d-flex ms-2 px-2 py-1 rounded " :class="{
           paid: currentInvoice.invoicePaid,
           draft: currentInvoice.invoiceDraft,
           pending: currentInvoice.invoicePending,
@@ -35,7 +35,7 @@
     <div class="bg-primary my-4 p-5 rounded d-flex flex-column">
       <div class=" d-flex justify-content-between">
         <div class=" d-flex flex-column text-start">
-          <p class="h3"><span class="text-primary-3">#</span>{{ currentInvoice.invoiceId }}</p>
+          <p class="h3"><strong class="text-primary-3">#</strong>{{ currentInvoice.invoiceId }}</p>
           <p class="fs-5">{{ currentInvoice.productDescription }}</p>
         </div>
         <div class=" d-flex flex-column  text-end">
@@ -47,17 +47,17 @@
       </div>
       <div class=" d-flex justify-content-around mt-4 ">
         <div class=" d-flex flex-column justify-content-between">
-          <h4 class="text-primary-3">Invoice Date</h4>
+          <h4 class="text-primary-3">{{$t('invoice_date')}}</h4>
           <p>
             {{ currentInvoice.invoiceDate }}
           </p>
-          <h4 class="text-primary-3">Payment Date</h4>
+          <h4 class="text-primary-3">{{$t('payment_date')}}</h4>
           <p>
             {{ currentInvoice.paymentDueDate }}
           </p>
         </div>
         <div class=" d-flex flex-column justify-content-between">
-          <h4 class="text-primary-3">Bill To</h4>
+          <h4 class="text-primary-3">{{$t('bill_to')}}</h4>
           <p>{{ currentInvoice.clientName }}</p>
           <p>{{ currentInvoice.clientStreetAddress }}</p>
           <p>{{ currentInvoice.clientCity }}</p>
@@ -65,17 +65,17 @@
           <p>{{ currentInvoice.clientCountry }}</p>
         </div>
         <div class=" d-flex flex-column justify-content-start">
-          <h4 class="text-primary-3">Sent To</h4>
+          <h4 class="text-primary-3">{{$t('sent_to')}}</h4>
           <p>{{ currentInvoice.clientEmail }}</p>
         </div>
       </div>
       <div class=" d-flex flex-column mt-3">
         <div class="bg-primary-1 p-2 rounded my-2 ">       
           <div class="row">
-            <p class="col">Item Name</p>
-            <p class="col">QTY</p>
-            <p class="col">Price</p>
-            <p class="col">Total</p>
+            <p class="col">{{$t('item_name')}}</p>
+            <p class="col">{{$t('qty')}}</p>
+            <p class="col">{{$t('price')}}</p>
+            <p class="col">{{$t('total')}}</p>
           </div>
           <div v-for="(item, index) in currentInvoice.invoiceItemList" :key="index" class="row">
             <p class="col">{{ item.name }}</p>
@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="row justify-content-between align-items-center mt-3">
-          <p class="col-3 h5 text-primary-3">Amount Due</p>
+          <p class="col-3 h5 text-primary-3">{{$t('total_amount')}}</p>
           <p class="col-3 h3">{{ currentInvoice.invoiceTotal }}</p>
         </div>
       </div>

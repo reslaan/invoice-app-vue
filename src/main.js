@@ -9,6 +9,8 @@ import i18n from './i18n/i18n'
 //import './assets/main.css'
 import '@/scss/style.scss'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+// import  '@/scss/style-ar.scss'
+
 const app = createApp(App)
 
 //app.use(createPinia())

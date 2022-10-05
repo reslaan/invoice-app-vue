@@ -1,7 +1,7 @@
 <template>
     <div class="app-modal position-fixed d-flex w-100 vh-100 justify-content-center align-items-center">
         <div class="modal-content text-white bg-primary w-25 rounded p-3">
-            <p>Are you sure you want to exit? your changes will not be saved</p>
+            <p>{{$t('modal_desc')}}</p>
             <div class="d-flex justify-content-around">
                   <button @click="keepModal" class="btn btn-primary-2 rounded-pill px-4">{{$t("keep")}} </button>
             <button @click="closeModal" class="btn btn-danger rounded-pill px-4">{{$t("close")}} </button>

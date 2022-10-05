@@ -8,12 +8,8 @@ export default createStore({
     invoicesLoaded: null,
     currentInvoiceArray: null,
     editInvoice: false,
-    dir: "rtl"
   },
   mutations: {
-    TOGGLE_DIR(state) {
-      state.dir = state.dir === "rtl" ? "ltr": "rtl";
-    },
     TOGGLE_INVOICE(state) {
       state.invoiceModal = !state.invoiceModal;
     },

@@ -22,7 +22,7 @@
           </ul>
         </div>
         <div>
-          <button class="btn btn-primary-2 rounded-pill " @click="newInvoice">{{$t('new_invoice')}}</button>
+          <button class="btn btn-primary-2 rounded-pill " @click="newInvoice">{{$t('new_invoice')}} +</button>
         </div>
       </div>
     </div>
