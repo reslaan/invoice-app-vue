@@ -3,13 +3,14 @@
 <template>
   <div class="home container my-5  text-white">
     <!-- header -->
-    <div class="header d-flex mb-5  justify-content-between align-items-center">
-      <div class="col-md-4 text-start">
+    <div class="header row  mb-5  justify-content-sm-between align-items-center">
+      <div class="col-3 col-sm-4 text-start">
         <h3>{{$t('invoices')}}</h3>
         <span>{{ $t('total_invoices',{ total: filteredData.length} )}} </span>
       </div>
-      <div class="col-md-6    d-flex justify-content-end align-items-center">
-        <div class="dropdown">
+      <div class=" col-9 col-sm-8    d-flex justify-content-end align-items-center">
+        <div class="row">
+          <div class="dropdown col"> 
           <button class="btn btn-primary-1 dropdown-toggle me-3 border-0" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             {{$t("filter")}} <span v-if="filteredInvoice">: {{filteredInvoice}}</span>
@@ -21,9 +22,11 @@
             <li><a class="dropdown-item" @click="filteredInvoices" href="#">{{$t("clear_filter")}}</a></li>
           </ul>
         </div>
-        <div>
+        <div class="col">
           <button class="btn btn-primary-2 rounded-pill border-0" @click="newInvoice">{{$t('new_invoice')}} +</button>
         </div>
+        </div>
+        
       </div>
     </div>
 <!-- Invoices -->
@@ -97,7 +100,13 @@ export default {
 
 <style lang="scss" scoped>
 
+.home{
+  width: 80%;
+  @media (max-width: 580px){
+    width: 98%;
 
+  }
+}
 .dropdown-menu{
   min-width: 9rem;
     .dropdown-item{

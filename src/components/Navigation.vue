@@ -1,15 +1,18 @@
 <template>
-    <header class="header bg-primary-2 h-100 shadow  ">
+    <header class="header bg-primary-2 h-100 shadow ">
 
-        <div class=" row m-0 ">
-            <div class="p-1  col-1 col-sm-12 col-md-10 m-auto">
+        <div class=" row m-0  justify-content-sm-center justify-content-between">
+            <div class="col-1 col-sm-12 col-md-10 p-1 px-2 ">
                 <router-link :to="{ name: 'home' }">
-                    <img src="@/assets/logo.svg" class="mt-2" alt="" />
+                    <img src="@/assets/logo.svg" class="mt-2  img-fluid " alt="" />
                 </router-link>
                 <!-- <img src="@/assets/logo.svg"   class="img-fluid " alt=""> -->
             </div>
-            <a href="#" class=" nav-link mt-2 p-2 text-light " @click.prevent="changeLocale"><small
+            <div class="col-2 col-sm-12  nav-item p-2 d-flex justify-content-center">
+                <a href="#" class=" nav-link   text-light " @click.prevent="changeLocale"><small
                     class="lang">{{currentLocale}}</small> </a>
+            </div>
+            
 
 
 
@@ -62,7 +65,7 @@ export default {
 
     }
     @media (max-width: 800px) {
-        width: 110%;
+        min-width: 100%;
 
     }
 
@@ -80,7 +83,7 @@ export default {
 
     }
 
-    .nav-link {
+    .nav-item {
         &:hover {
             background-color: #041c3248;
 

@@ -90,7 +90,7 @@ export default createStore({
     async UPDATE_INVOICE({ commit, dispatch }, { docId, routeId }) {
       commit("DELETE_INVOICE", docId);
       await dispatch("GET_INVOICES");
-      commit("TOGGLE_INVOICE");
+       commit("TOGGLE_INVOICE");
       commit("TOGGLE_EDIT_INVOICE");
       commit("SET_CURRENT_INVOICE", routeId);
     },

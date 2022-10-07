@@ -1,11 +1,11 @@
 
 
 <template  >
-  <div v-if="invoicesLoaded"  id="app"  >
-    <div v-if="!mobile" class="app row flex-column flex-sm-row bg-primary-1  text-center min-vh-100 ">
+  <div v-if="invoicesLoaded" id="app">
+    <div v-if="true" class="app row flex-column flex-sm-row bg-primary-1  text-center min-vh-100 m-0">
 
 
-      <div class="col-12 col-sm-1 ">
+      <div class="col-12 col-sm-1 px-0">
 
         <Navigation />
       </div>
@@ -13,7 +13,6 @@
         <modal v-if="modalActive" />
         <Transition name="invoice">
           <InvoiceModal v-if="invoiceModal" />
-
         </Transition>
         <router-view />
       </div>
@@ -48,12 +47,12 @@ export default {
     InvoiceModal,
     Modal
   },
- 
+
   data() {
     return {
       mobile: false,
-     
-     
+
+
     }
 
   },
@@ -62,7 +61,7 @@ export default {
     this.checkScreen();
     window.addEventListener('resize', this.checkScreen)
 
-    
+
   },
   methods: {
     ...mapActions(['GET_INVOICES']),
@@ -80,13 +79,11 @@ export default {
   computed: {
     ...mapState(['invoiceModal', 'modalActive', 'invoicesLoaded'])
   },
- 
+
 }
 </script>
 
 <style lang="scss">
-
-
 /* animated modal invoice  */
 .invoice-enter-active,
 .invoice-leave-active {
@@ -110,6 +107,7 @@ export default {
   &::before {
     background-color: #33d69f;
   }
+
   min-width: fit-content;
   color: #33d69f;
   background-color: rgba(51, 214, 160, 0.1);
@@ -119,6 +117,7 @@ export default {
   &::before {
     background-color: #ff8f00;
   }
+
   min-width: fit-content;
   color: #ff8f00;
   background-color: rgba(255, 145, 0, 0.1);
@@ -128,6 +127,7 @@ export default {
   &::before {
     background-color: #dfe3fa;
   }
+
   min-width: fit-content;
   color: #dfe3fa;
   background-color: rgba(223, 227, 250, 0.1);

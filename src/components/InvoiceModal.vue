@@ -123,7 +123,7 @@
                             class="btn btn-primary me-2 rounded-pill ">{{$t("save_draft")}}</button>
                         <button v-if="!editInvoice" type="submit" @click="createInovice"
                             class="btn btn-primary-2 rounded-pill">{{$t("create_invoice")}}</button>
-                        <button v-if="editInvoice" type="submit" @click="updateInovice"
+                        <button v-if="editInvoice" type="submit" @click=""
                             class="btn btn-primary-2 rounded-pill">{{$t("update_invoice")}}</button>
 
                     </div>
@@ -299,12 +299,10 @@ export default {
             this.calInvoiceTotal();
 
             const database = firebase.collection('invoices').doc(this.docId);
-            console.log(database)
-            console.log('bye databsae')
+          
 
 
             await database.update({
-               
                 billerStreetAddress: this.billerStreetAddress,
                 billerCity: this.billerCity,
                 billerZipCode: this.billerZipCode,
@@ -322,7 +320,7 @@ export default {
                 paymentDueDate: this.paymentDueDate,
                 productDescription: this.productDescription,
                 invoiceItemList: this.invoiceItemList,
-                
+                invoiceTotal: this.invoiceTotal,
 
             })
             this.loading = false;
@@ -333,6 +331,7 @@ export default {
             }
             this.UPDATE_INVOICE(data)
         },
+
         submitForm() {
             if(this.editInvoice){
                 this.updateInvoice();
@@ -343,7 +342,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['editInvoice', 'currentInvoiceArray'])
+        ...mapState(['editInvoice', 'currentInvoiceArray','invoiceModal'])
     },
     watch: {
         paymentTerms() {
@@ -372,8 +371,14 @@ export default {
     }
 
     .invoice-form {
-        width: 33rem;
+        width: 40%;
         position: relative;
+        @media (max-width: 840px){
+            width: 60%;
+        }
+        @media (max-width: 560px){
+            width: 90%;
+        }
     }
 
     input,

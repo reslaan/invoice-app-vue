@@ -1,6 +1,6 @@
 <template>
     <div class="app-modal position-fixed d-flex w-100 vh-100 justify-content-center align-items-center">
-        <div class="modal-content text-white bg-primary w-25 rounded p-3">
+        <div class="modal-content text-white bg-primary  rounded p-3">
             <p>{{$t('modal_desc')}}</p>
             <div class="d-flex justify-content-around">
                   <button @click="keepModal" class="btn btn-primary-2 rounded-pill px-4 ">{{$t("keep")}} </button>
@@ -40,5 +40,11 @@ export default{
 <style lang="scss" scoped>
 .app-modal{
     z-index: 111;
+    .modal-content{
+        width: 25%;
+        @media (max-width:640px){
+            width: 50%;
+        }
+    }
 }
 </style>
